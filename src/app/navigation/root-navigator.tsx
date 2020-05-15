@@ -12,7 +12,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, ViewStyle, ImageStyle } from 'react-native';
 import { RootParamList } from './types';
 import { PrimaryNavigator } from './primary-navigator';
-import { HomeScreen, SettingsScreen } from '../screens';
+import { HomeScreen, SettingsScreen, MapScreen } from '../screens';
 import { OtherScreen } from '../screens/other-screen/other-screen';
 import { Icon } from '../components';
 import { IconTypes } from '../components/icon/icons';
@@ -72,6 +72,8 @@ export const TabNavigator = React.forwardRef<
                             iconName = 'home';
                         } else if (route.name === 'Settings') {
                             iconName = 'settings';
+                        } else if (route.name === 'Map') {
+                            iconName = 'settings';
                         }
                         // You can return any component that you like here!
                         return (
@@ -85,6 +87,7 @@ export const TabNavigator = React.forwardRef<
                 }}
             >
                 <Tab.Screen name="Home" component={RootStackNavigator} />
+                <Tab.Screen name="Map" component={MapScreen} />
                 <Tab.Screen name="Settings" component={SettingsScreen} />
             </Tab.Navigator>
         </NavigationContainer>
